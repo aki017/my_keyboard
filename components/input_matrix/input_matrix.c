@@ -29,7 +29,7 @@ void scan_input(){
 
         for(int j = 0; j < NROW; j++){
             int level = gpio_get_level(row_pins[j]);
-            input_buttons[i*NROW+j] = level > 0 ? 0 : 1;
+            input_buttons[j*NROW+i] = level > 0 ? 0 : 1;
         }
     }
 }
