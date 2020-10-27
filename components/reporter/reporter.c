@@ -343,7 +343,7 @@ uint8_t input_map[] = {
     KC_TAB, KC_A, KC_S, KC_D, KC_F, KC_G,
     KC_LSHIFT, KC_Z, KC_X, KC_C, KC_V, KC_B,
     KC_NO, KC_NO, KC_TAB, KC_BSLASH, KC_DELETE, KC_LSHIFT,
-    KC_SPACE, KC_LCTRL, KC_ENTER, KC_LALT, KC_NO, KC_NO};
+    KC_NO, KC_NO, KC_ENTER, KC_LALT, KC_SPACE, KC_LCTRL};
 #else
 uint8_t input_map[] = {
     KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINUS,
