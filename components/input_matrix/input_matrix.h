@@ -1,6 +1,6 @@
 #include "driver/gpio.h"
 
-#define LEFT true
+#define LEFT false
 
 #define COL1 GPIO_NUM_2
 #define COL2 GPIO_NUM_14
@@ -16,11 +16,20 @@
 #define ROW6 GPIO_NUM_12
 
 #if LEFT
-#define MATRIX_COLS { COL6, COL5, COL4, COL3, COL2, COL1 }
+#define MATRIX_COLS                        \
+    {                                      \
+        COL6, COL5, COL4, COL3, COL2, COL1 \
+    }
 #else
-#define MATRIX_COLS { COL1, COL2, COL3, COL4, COL5, COL6 }
+#define MATRIX_COLS                        \
+    {                                      \
+        COL1, COL2, COL3, COL4, COL5, COL6 \
+    }
 #endif
-#define MATRIX_ROWS { ROW1, ROW2, ROW3, ROW4, ROW5, ROW6 }
+#define MATRIX_ROWS                        \
+    {                                      \
+        ROW1, ROW2, ROW3, ROW4, ROW5, ROW6 \
+    }
 #define NCOL 6
 #define NROW 6
 #define NBUTTON (NCOL * NROW)

@@ -12,26 +12,28 @@
 
 void init_reporter();
 
-#define LEFT true
+#define LEFT false
 
 typedef union
 {
     uint8_t Value;
-    struct {
-        bool LCTRL: 1;
-        bool LSHIFT: 1;
-        bool LALT: 1;
-        bool LGUI: 1;
-        bool RCTRL: 1;
-        bool RSHIFT: 1;
-        bool RALT: 1;
-        bool RGUI: 1;
+    struct
+    {
+        bool LCTRL : 1;
+        bool LSHIFT : 1;
+        bool LALT : 1;
+        bool LGUI : 1;
+        bool RCTRL : 1;
+        bool RSHIFT : 1;
+        bool RALT : 1;
+        bool RGUI : 1;
     };
 } KeyboardModifier;
 
 /* USB HID Keyboard/Keypad Usage(0x07) */
-enum hid_keyboard_keypad_usage {
-    KC_NO               = 0x00,
+enum hid_keyboard_keypad_usage
+{
+    KC_NO = 0x00,
     KC_ROLL_OVER,
     KC_POST_FAIL,
     KC_UNDEFINED,
@@ -47,7 +49,7 @@ enum hid_keyboard_keypad_usage {
     KC_J,
     KC_K,
     KC_L,
-    KC_M,               /* 0x10 */
+    KC_M, /* 0x10 */
     KC_N,
     KC_O,
     KC_P,
@@ -63,7 +65,7 @@ enum hid_keyboard_keypad_usage {
     KC_Z,
     KC_1,
     KC_2,
-    KC_3,               /* 0x20 */
+    KC_3, /* 0x20 */
     KC_4,
     KC_5,
     KC_6,
@@ -79,15 +81,15 @@ enum hid_keyboard_keypad_usage {
     KC_MINUS,
     KC_EQUAL,
     KC_LBRACKET,
-    KC_RBRACKET,        /* 0x30 */
-    KC_BSLASH,          /* \ (and |) */
-    KC_NONUS_HASH,      /* Non-US # and ~ (Typically near the Enter key) */
-    KC_SCOLON,          /* ; (and :) */
-    KC_QUOTE,           /* ' and " */
-    KC_GRAVE,           /* Grave accent and tilde */
-    KC_COMMA,           /* , and < */
-    KC_DOT,             /* . and > */
-    KC_SLASH,           /* / and ? */
+    KC_RBRACKET,   /* 0x30 */
+    KC_BSLASH,     /* \ (and |) */
+    KC_NONUS_HASH, /* Non-US # and ~ (Typically near the Enter key) */
+    KC_SCOLON,     /* ; (and :) */
+    KC_QUOTE,      /* ' and " */
+    KC_GRAVE,      /* Grave accent and tilde */
+    KC_COMMA,      /* , and < */
+    KC_DOT,        /* . and > */
+    KC_SLASH,      /* / and ? */
     KC_CAPSLOCK,
     KC_F1,
     KC_F2,
@@ -95,7 +97,7 @@ enum hid_keyboard_keypad_usage {
     KC_F4,
     KC_F5,
     KC_F6,
-    KC_F7,              /* 0x40 */
+    KC_F7, /* 0x40 */
     KC_F8,
     KC_F9,
     KC_F10,
@@ -111,7 +113,7 @@ enum hid_keyboard_keypad_usage {
     KC_END,
     KC_PGDOWN,
     KC_RIGHT,
-    KC_LEFT,            /* 0x50 */
+    KC_LEFT, /* 0x50 */
     KC_DOWN,
     KC_UP,
     KC_NUMLOCK,
@@ -127,11 +129,11 @@ enum hid_keyboard_keypad_usage {
     KC_KP_5,
     KC_KP_6,
     KC_KP_7,
-    KC_KP_8,            /* 0x60 */
+    KC_KP_8, /* 0x60 */
     KC_KP_9,
     KC_KP_0,
     KC_KP_DOT,
-    KC_NONUS_BSLASH,    /* Non-US \ and | (Typically near the Left-Shift key) */
+    KC_NONUS_BSLASH, /* Non-US \ and | (Typically near the Left-Shift key) */
     KC_APPLICATION,
     KC_POWER,
     KC_KP_EQUAL,
@@ -143,7 +145,7 @@ enum hid_keyboard_keypad_usage {
     KC_F18,
     KC_F19,
     KC_F20,
-    KC_F21,             /* 0x70 */
+    KC_F21, /* 0x70 */
     KC_F22,
     KC_F23,
     KC_F24,
@@ -159,13 +161,13 @@ enum hid_keyboard_keypad_usage {
     KC_PASTE,
     KC_FIND,
     KC__MUTE,
-    KC__VOLUP,          /* 0x80 */
+    KC__VOLUP, /* 0x80 */
     KC__VOLDOWN,
-    KC_LOCKING_CAPS,    /* locking Caps Lock */
-    KC_LOCKING_NUM,     /* locking Num Lock */
-    KC_LOCKING_SCROLL,  /* locking Scroll Lock */
+    KC_LOCKING_CAPS,   /* locking Caps Lock */
+    KC_LOCKING_NUM,    /* locking Num Lock */
+    KC_LOCKING_SCROLL, /* locking Scroll Lock */
     KC_KP_COMMA,
-    KC_KP_EQUAL_AS400,  /* equal sign on AS/400 */
+    KC_KP_EQUAL_AS400, /* equal sign on AS/400 */
     KC_INT1,
     KC_INT2,
     KC_INT3,
@@ -175,7 +177,7 @@ enum hid_keyboard_keypad_usage {
     KC_INT7,
     KC_INT8,
     KC_INT9,
-    KC_LANG1,           /* 0x90 */
+    KC_LANG1, /* 0x90 */
     KC_LANG2,
     KC_LANG3,
     KC_LANG4,
@@ -191,16 +193,16 @@ enum hid_keyboard_keypad_usage {
     KC_PRIOR,
     KC_RETURN,
     KC_SEPARATOR,
-    KC_OUT,             /* 0xA0 */
+    KC_OUT, /* 0xA0 */
     KC_OPER,
     KC_CLEAR_AGAIN,
     KC_CRSEL,
-    KC_EXSEL,           /* 0xA4 */
+    KC_EXSEL, /* 0xA4 */
 
     /* NOTE: 0xA5-DF are used for internal special purpose */
 
     /* Modifiers */
-    KC_LCTRL            = 0xE0,
+    KC_LCTRL = 0xE0,
     KC_LSHIFT,
     KC_LALT,
     KC_LGUI,

@@ -353,6 +353,9 @@ uint8_t input_map[] = {
     KC_SPACE, KC_BSPACE, KC_LBRACKET, KC_RBRACKET, KC_NO, KC_NO,
     KC_RCTRL, KC_RALT, KC_RGUI, KC_PGDOWN, KC_NO, KC_NO};
 #endif
+
+uint8_t prev_kbdcmd[] = {0, 0, 0, 0, 0, 0};
+KeyboardModifier prev_modifier = {0};
 void input_test(void *pvParameters)
 {
     uint8_t ndown = 0;
@@ -368,6 +371,7 @@ void input_test(void *pvParameters)
         }
         ndown = 0;
         modifier.Value = 0;
+        memset(kbdcmd, 0, sizeof(kbdcmd));
         for (int i = 0; i < NBUTTON; i++)
         {
             if (input_buttons[i] == 1)
@@ -405,6 +409,15 @@ void input_test(void *pvParameters)
             }
         }
 
+        if (memcmp(prev_kbdcmd, kbdcmd, sizeof(kbdcmd)) == 0)
+        {
+            if (memcmp(&prev_modifier, &modifier, sizeof(modifier)) == 0)
+            {
+                continue;
+            }
+        }
+        memcpy(prev_kbdcmd, kbdcmd, sizeof(kbdcmd));
+        memcpy(&prev_modifier, &modifier, sizeof(modifier));
         esp_hidd_send_keyboard_value(hid_conn_id, modifier.Value, kbdcmd, ndown);
     }
 }
